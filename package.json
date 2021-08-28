@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/vaishnav67/Personal-Note-Taker/issues"
   },
-  "homepage": "https://github.com/vaishnav67/Personal-Note-Taker#readme"
+  "homepage": "https://github.com/vaishnav67/Personal-Note-Taker#readme",
+  "dependencies": {
+    "tailwindcss": "^2.2.8"
+  }
 }
