@@ -1,0 +1,23 @@
+{
+  "name": "personal-note-taker",
+  "version": "1.0.0",
+  "description": "CSE3002 Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaishnav67/Personal-Note-Taker.git"
+  },
+  "keywords": [
+    "note-taker",
+    "cse3002"
+  ],
+  "author": "Vaishnav Santhosh, Irene John, Gokul Dinesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vaishnav67/Personal-Note-Taker/issues"
+  },
+  "homepage": "https://github.com/vaishnav67/Personal-Note-Taker#readme"
+}
