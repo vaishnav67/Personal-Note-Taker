@@ -17,7 +17,7 @@
                     <li><a href='./Login.html'>Home</a></li>
                     <li><a href='./about_us.html'>About Us</a></li>
                     <li><a href='./contact_us.html'>Contact</a></li>
-                    <li><button class='loginbtn' onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">Login</button></li>
+                    <li><button class='loginbtn' onclick="document.getElementById('login-form').style.display='block';document.getElementById('title').style.display= 'none';" style="width:auto;">Login</button></li>
                 </ul>
             </nav>
         </div>
@@ -31,7 +31,7 @@
                 <form id='login' class='input-group-login' action="./notes.html">
                     <input type='text'class='input-field'placeholder='Email Id' required >
 		    <input type='password'class='input-field'placeholder='Enter Password' required>
-		    <button type='submit'class='submit-btn' onSubmit="./notes.html">Log in</button>
+		    <button type='submit'class='submit-btn' onSubmit="">Log in</button>
 		 </form>
 		 <form id='register' class='input-group-register'>
 		     <input type='text'class='input-field'placeholder='First Name' required>
@@ -49,7 +49,7 @@
 
 <main>
 <section>
-         <div class="welcome_text typeWriter"> 
+         <div id="title" class="welcome_text typeWriter"> 
             <h1>Welcome to Note Taker</h1>
         </div>
 </section>
@@ -78,6 +78,7 @@
             if (event.target == modal) 
             {
                 modal.style.display = "none";
+                document.getElementById("title").style.display= "block";
             }
         }
     </script>
