@@ -107,7 +107,7 @@ body{
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
-  background: darkred;
+  background-color: rgba(255,103,101,1);
   cursor: pointer;
   transition: all 0.3s ease;
 }
