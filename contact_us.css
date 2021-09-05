@@ -52,7 +52,7 @@ body{
 }
 .content .left-side .details i{
   font-size: 30px;
-  color: #3e2093;
+  color: darkred;
   margin-bottom: 10px;
 }
 .content .left-side .details .topic{
@@ -62,7 +62,7 @@ body{
 .content .left-side .details .text-one,
 .content .left-side .details .text-two{
   font-size: 14px;
-  color: #afafb6;
+  color: black;
 }
 .container .content .right-side{
   width: 75%;
@@ -71,7 +71,7 @@ body{
 .content .right-side .topic-text{
   font-size: 23px;
   font-weight: 600;
-  color: #3e2093;
+  color: black;
 }
 .right-side .input-box{
   height: 50px;
@@ -85,7 +85,7 @@ body{
   border: none;
   outline: none;
   font-size: 16px;
-  background: #F0F1F8;
+  background: lightgrey;
   border-radius: 6px;
   padding: 0 15px;
   resize: none;
@@ -107,12 +107,12 @@ body{
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
-  background: #3e2093;
+  background: darkred;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .button input[type="button"]:hover{
-  background: #5029bc;
+  background: blueviolet;
 }
 
 @media (max-width: 950px) {
