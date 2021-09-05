@@ -114,7 +114,7 @@ a
 	position: absolute;
 	width: 110px;
 	height: 100%;
-	background-color: orange;
+	background-color: rgba(232, 79, 77, 1);
 	border-radius: 30px;
 	transition: .5s;
 }
@@ -152,7 +152,7 @@ a
 	display: block;
 	margin: auto;
 	margin-top:  20px;
-	background-color: orange;
+	background-color: rgba(232, 79, 77, 1);
 	border: 0;
 	outline: none;
 	border-radius: 30px;

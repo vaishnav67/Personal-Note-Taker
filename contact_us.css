@@ -52,7 +52,7 @@ body{
 }
 .content .left-side .details i{
   font-size: 30px;
-  color: darkred;
+  color: rgba(232, 79, 77, 1);
   margin-bottom: 10px;
 }
 .content .left-side .details .topic{
@@ -107,7 +107,7 @@ body{
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
-  background-color: rgba(255,103,101,1);
+  background-color: rgba(232, 79, 77, 1);
   cursor: pointer;
   transition: all 0.3s ease;
 }

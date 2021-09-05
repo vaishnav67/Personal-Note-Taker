@@ -8,7 +8,7 @@
 body{
     font-family: 'Playfair Display', serif;
     display: grid;
-    background-color: palevioletred;    
+    background-color: rgba(232, 79, 77, 1);    
     align-content: center;
     min-height: 100vh;
 }
@@ -67,10 +67,10 @@ section{
     text-decoration: none;
 }
 .links li:hover{
-    border-color: #06d6a0;
+    border-color: rgba(232, 79, 77, 1);
 }
 .links li:hover a{
-    color :#06d6a0;
+    color :rgba(232, 79, 77, 1);
 }
 .vertical-line{
     height: 30px;
@@ -92,11 +92,10 @@ section{
     opacity: 0.8;
 }
 .icons li i:hover{
-    color: #06d6a0;
+    color: rgba(232, 79, 77, 1);
 }
 
 
-/*****************/
 
 @media(max-width: 992px){
     section{
