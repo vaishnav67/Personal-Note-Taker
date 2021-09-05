@@ -178,3 +178,9 @@ if (window.location.pathname === '/notes') {
 }
 
 getAndRenderNotes();
+
+function notes(){
+  document.getElementById("notes").style.display= "none";
+  document.getElementById("notesArea").style.display= "block";
+  document.getElementById("categories").style.minHeight="100vh";
+}

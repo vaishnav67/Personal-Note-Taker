@@ -24,18 +24,13 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-3 list-container">
-        <div class="card">
+        <div id="categories" class="card">
           <ul class="list-group">
           </ul>
         </div>
-      <!-- Note--
-      <div class="col-8" style="display: none;">
-        <input class="note-title" placeholder="Note Title" maxlength="28" type="text">
-        <textarea class="note-textarea" placeholder="Note Text"></textarea>
-        Note end-->
       </div>
-      <div class="col-sm-9">
-        <div class="notes"></div>
+      <div id="notes" class="col-sm-9" style="display: block;">
+        <a onclick="notes()"><div class="notes" style="background-color: black;"></div></a>
         <div class="notes"></div>
         <div class="notes"></div>
         <div class="notes"></div>
@@ -44,10 +39,13 @@
         <div class="notes"></div>
         <div class="notes"></div>
         </div>
+        <div id="notesArea" class="col-8" style="display: none;">
+          <input class="note-title" placeholder="Note Title" maxlength="28" type="text">
+          <textarea class="note-textarea" placeholder="Note Text"></textarea>
   </div>
     </div>
   </div>
-  <script src="/assets/js/index.js"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>

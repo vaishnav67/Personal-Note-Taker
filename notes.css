@@ -24,7 +24,7 @@ html, body {
   
   .note-textarea {
     resize: none;
-    height: calc(100% - 63px);
+    min-height: 500%;
     padding-top: 15px;
   }
   
