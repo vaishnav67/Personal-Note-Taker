@@ -4,6 +4,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.image_logo {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+}
+
 .full-page
 {
     height: 100%;
@@ -78,9 +85,10 @@ a
 	height:480px;
 	position:relative;
 	margin:2% auto;
-	background:rgba(0,0,0,0.3);
+	background: lightgoldenrodyellow;
 	padding:10px;
     overflow: hidden;
+    border-radius: 20px;
 }
 .button-box
 {
@@ -106,7 +114,7 @@ a
 	position: absolute;
 	width: 110px;
 	height: 100%;
-	background: #F3C693;
+	background: linear-gradient(-135deg, #c850c0, #4158d0);
 	border-radius: 30px;
 	transition: .5s;
 }
@@ -143,7 +151,8 @@ a
 	cursor: pointer;
 	display: block;
 	margin: auto;
-	background: #F3C693;
+	margin-top:  20px;
+	background: linear-gradient(-135deg, #c850c0, #4158d0);
 	border: 0;
 	outline: none;
 	border-radius: 30px;
@@ -165,7 +174,7 @@ span
 }
 #login input
 {
-	color:white;
+	color:black;
 	font-size:15;
 }
 #register
@@ -174,6 +183,6 @@ span
 }
 #register input
 {
-	color:white;
+	color:black;
 	font-size: 15;
 }

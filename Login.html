@@ -5,18 +5,19 @@
     <title>seek coding</title>
     <link rel="stylesheet" href="Login.css">
 </head>
-<body>
+<body style="background-image: url('./resources/one.gif'); background-size: cover; background-repeat: no-repeat">
+    <header>
+        <nav>
     <div class="full-page">
         <div class="navbar">
             <div>
-                <a href='website.html'>Personal Note Taker</a>
+                <img src="resources/logo_10.gif" alt="" class="image_logo">
             </div>
             <nav>
                 <ul id='MenuItems'>
-                    <li><a href='#'>Home</a></li>
-                    <li><a href='#'>About Us</a></li>
-                    <li><a href='#'>Services</a></li>
-                    <li><a href='#'>Contact</a></li>
+                    <li><a href='./Login.html'>Home</a></li>
+                    <li><a href='./about_us_main.html'>About Us</a></li>
+                    <li><a href='./contact_us.html'>Contact</a></li>
                     <li><button class='loginbtn' onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">Login</button></li>
                 </ul>
             </nav>
@@ -31,7 +32,6 @@
                 <form id='login' class='input-group-login'>
                     <input type='text'class='input-field'placeholder='Email Id' required >
 		    <input type='password'class='input-field'placeholder='Enter Password' required>
-		    <input type='checkbox'class='check-box'><span>Remember Password</span>
 		    <button type='submit'class='submit-btn'>Log in</button>
 		 </form>
 		 <form id='register' class='input-group-register'>
@@ -40,12 +40,14 @@
 		     <input type='email'class='input-field'placeholder='Email Id' required>
 		     <input type='password'class='input-field'placeholder='Enter Password' required>
 		     <input type='password'class='input-field'placeholder='Confirm Password'  required>
-		     <input type='checkbox'class='check-box'><span>I agree to the terms and conditions</span>
                     <button type='submit'class='submit-btn'>Register</button>
 	         </form>
             </div>
         </div>
+       
     </div>
+</nav>
+</header>
     <script>
         var x=document.getElementById('login');
 		var y=document.getElementById('register');
@@ -73,5 +75,7 @@
             }
         }
     </script>
+
+
 </body>
 </html>
