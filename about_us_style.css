@@ -88,7 +88,7 @@ section{
     margin: 5px;
 }
 .icons li i{
-    font-size: 26px;
+    font-size: 50px;
     opacity: 0.8;
 }
 .icons li i:hover{
@@ -131,4 +131,7 @@ section{
     .icons li i{
         font-size: 15px;
     }
+}
+a, a:visited{
+     color: black;
 }
