@@ -8,7 +8,7 @@
 body{
   min-height: 100vh;
   width: 100%;
-  background-image: url('./resources/one.gif');
+  background-image: url('/resources/one.gif');
   background-size: cover;
   display: flex;
   align-items: center;

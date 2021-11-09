@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Personal Note Taker</title>
-    <link rel="stylesheet" href="Login.css">
+    <link rel="stylesheet" href="./css/Login.css">
 </head>
 <body style="background-image: url('./resources/one.gif'); background-size: cover; background-repeat: no-repeat;">
 
@@ -14,9 +14,9 @@
             </div>
             <nav>
                 <ul id='MenuItems'>
-                    <li><a href='./Login.html'>Home</a></li>
-                    <li><a href='./about_us.html'>About Us</a></li>
-                    <li><a href='./contact_us.html'>Contact</a></li>
+                    <li><a href='./Login'>Home</a></li>
+                    <li><a href='./about_us'>About Us</a></li>
+                    <li><a href='./contact_us'>Contact</a></li>
                     <li><button class='loginbtn' onclick="document.getElementById('login-form').style.display='block';document.getElementById('title').style.display= 'none';" style="width:auto;">Login</button></li>
                 </ul>
             </nav>
@@ -28,7 +28,7 @@
                     <button type='button'onclick='login()'class='toggle-btn'>Log In</button>
                     <button type='button'onclick='register()'class='toggle-btn'>Register</button>
                 </div>
-                <form id='login' class='input-group-login' action="./notes.html">
+                <form id='login' class='input-group-login' action="./notes">
                     <input type='text'class='input-field'placeholder='Email Id' required >
 		    <input type='password'class='input-field'placeholder='Enter Password' required>
 		    <button type='submit'class='submit-btn' onSubmit="">Log in</button>

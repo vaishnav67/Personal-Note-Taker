@@ -20,7 +20,7 @@ section{
     margin: 0 auto;
 }
 .image{
-    background: url("resources/one.gif") center/cover no-repeat;
+    background: url("/resources/one.gif") center/cover no-repeat;
 }
 .content{
     background: #fff;
