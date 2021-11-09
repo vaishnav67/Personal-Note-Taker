@@ -1,5 +1,26 @@
 {
   "dependencies": {
+    "express": "^4.17.1",
     "mongodb": "^4.1.4"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "personal-note-taker",
+  "description": "CSE3002 Project",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaishnav67/Personal-Note-Taker.git"
+  },
+  "keywords": [
+    "personal-note-taker"
+  ],
+  "author": "Vaishnav, Irene, Gokul",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vaishnav67/Personal-Note-Taker/issues"
+  },
+  "homepage": "https://github.com/vaishnav67/Personal-Note-Taker#readme"
 }
