@@ -25,20 +25,20 @@
             <div class="form-box">
                 <div class='button-box'>
                     <div id='btn'></div>
-                    <button type='button'onclick='login()'class='toggle-btn'>Log In</button>
-                    <button type='button'onclick='register()'class='toggle-btn'>Register</button>
+                    <button type='button'onclick='logn()'class='toggle-btn'>Log In</button>
+                    <button type='button'onclick='registe()'class='toggle-btn'>Register</button>
                 </div>
-                <form id='login' class='input-group-login' action="./notes">
-                    <input type='text'class='input-field'placeholder='Email Id' required >
-		    <input type='password'class='input-field'placeholder='Enter Password' required>
+                <form id='login' name="login" class='input-group-login' method="post" action="./validate">
+                    <input type='text'class='input-field'placeholder='Enter Username' name="username" required>
+		    <input type='password'class='input-field'placeholder='Enter Password' name="password" required>
 		    <button type='submit'class='submit-btn' onSubmit="">Log in</button>
 		 </form>
-		 <form id='register' class='input-group-register'>
-		     <input type='text'class='input-field'placeholder='First Name' required>
-		     <input type='text'class='input-field'placeholder='Last Name ' required>
-		     <input type='email'class='input-field'placeholder='Email Id' required>
-		     <input type='password'class='input-field'placeholder='Enter Password' required>
-		     <input type='password'class='input-field'placeholder='Confirm Password'  required>
+		 <form id='register' name="register" class='input-group-register' method="post" action="./register">
+		     <input type='text' class='input-field' placeholder='Username' name="username" required>
+		     <input type='text' class='input-field' placeholder='First Name' name="fname" required>
+		     <input type='email' class='input-field' placeholder='Email Id' name="emailid" required>
+		     <input type='password' class='input-field' placeholder='Enter Password' name="password" required>
+		     <input type='password' class='input-field' placeholder='Confirm Password'  required>
                     <button type='submit'class='submit-btn' >Register</button>
 	         </form>
             </div>
@@ -58,13 +58,13 @@
         var x=document.getElementById('login');
 		var y=document.getElementById('register');
 		var z=document.getElementById('btn');
-		function register()
+		function registe()
 		{
 			x.style.left='-400px';
 			y.style.left='50px';
 			z.style.left='110px';
 		}
-		function login()
+		function logn()
 		{
 			x.style.left='50px';
 			y.style.left='450px';
