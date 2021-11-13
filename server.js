@@ -5,36 +5,28 @@ var mongoose = require("mongoose");
 var passport = require("passport");
 var bodyParser = require("body-parser");
 var LocalStrategy = require("passport-local");
-var passportLocalMongoose = require("passport-local-mongoose");
 var User = require("./models/user");
+var Notes = require("./models/notes");
 const session = require('express-session');
 const ejs = require('ejs');
 const port = 8080;
-mongoose.connect("mongodb+srv://<USER>:<PASS>@iwp.igcbx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
-// Initialise Express
+mongoose.connect("MONGO ADDRESS HERE");
 var app = express();
-// Render static files
 app.use(express.static('public'));
-// Set the view engine to ejs
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
-passport.serializeUser(User.serializeUser());       //session encoding
-passport.deserializeUser(User.deserializeUser());   //session decoding
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 passport.use(new LocalStrategy(User.authenticate()));
 app.use(session({secret: 'test', resave: true, saveUninitialized: true,maxAge: 3600000})); 
 app.use(passport.initialize());
 app.use(passport.session());
 
-// *** GET Routes - display pages ***
-// Root Route
-
 app.get('/', function (req, res) {
     res.render('pages/Login');
 });
 
- // Handling user register
 app.post("/register", function (req, res) {
-	console.log('Got body:', req.body);
     var username = req.body.username;
 	var fname = req.body.fname;
 	var emailid = req.body.emailid;
@@ -42,34 +34,77 @@ app.post("/register", function (req, res) {
 			req.body.password, function (err, user) {
 		if (err) {
 			console.log(err);
-			alert("User exists");
+			alert("User Exists!");
 			res.render('pages/Login');
 		}
 		passport.authenticate("local")(
 			req, res, function () {
-			res.render("notes");
+				alert("You have been registered!");
+			res.render("pages/Login");
 		});
 	});
 });
+
 app.get('/Login', function (req, res) {
     res.render('pages/Login');
+	if(req.session.messages.includes('Password or username is incorrect')){
+		alert("Invalid User");
+	}
 });
+
 app.get('/about_us', function (req, res) {
     res.render('pages/about_us');
 });
+
 app.get('/contact_us', function (req, res) {
     res.render('pages/contact_us');
 });
-app.get('/notes', function (req, res) {
-    res.render('pages/notes');
-});
-//Handling user login
+
 app.post('/validate', passport.authenticate('local', {
 	successRedirect: '/notes',
-	failureRedirect: '/contact_us',
+	failureRedirect: '/Login',
+	failureMessage: true
   }));
 
-// Port website will run on
+app.get('/logout', function(req, res){
+	req.logout();
+	res.redirect('/');
+  });
+  
+app.get('/notes', async (req, res) => {
+	const notes = await Notes.find({createdBy:req.user.username}).sort('-createdAt');
+	res.render('pages/notes', { notes: notes });
+  });
+
+app.get('/new', (req, res) => {
+	res.render('pages/new');
+  });
+  
+app.post('/notes', async (req, res) => {
+	let note = await new Notes({
+		title: req.body.title,
+	  	description: req.body.description,
+	  	createdBy: req.user.username,
+	});
+	try {
+		note = await note.save();
+		res.redirect('/notes');
+	} catch (e) {
+		console.log(e);
+		res.render('new');
+	}
+  });
+  
+app.post('/notes/:id', async (req, res) => {
+	try {
+		await Notes.findByIdAndRemove(req.params.id);
+	  	res.redirect('/notes');
+	} catch (e) {
+		console.log(e);
+	  	res.redirect('/notes');
+	}
+  });
+
 app.listen(port, ()=>{
     console.log(`Example app listening at http://localhost:${port}`)
 });
