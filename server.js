@@ -1,4 +1,4 @@
-// Load Node modules
+require('dotenv').config()
 var express = require('express');
 var alert = require('alert');
 var mongoose = require("mongoose");
@@ -10,7 +10,7 @@ var Notes = require("./models/notes");
 const session = require('express-session');
 const ejs = require('ejs');
 const port = 8080;
-mongoose.connect("MONGO ADDRESS HERE");
+mongoose.connect(process.env.DB_URL);
 var app = express();
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
