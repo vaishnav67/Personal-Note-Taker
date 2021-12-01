@@ -2,6 +2,7 @@
   "dependencies": {
     "alert": "^5.0.10",
     "body-parser": "^1.19.0",
+    "ckeditor": "^4.12.1",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",

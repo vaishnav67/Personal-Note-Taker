@@ -9,13 +9,17 @@ const notesSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  editedAt: {
-    type: Date,
-    default: Date.now(),
-  },
   createdBy: {
     type: String,
+  },
+  real: {
+    type: String,
+  },
+  expireAt: {
+    type: Date,
+    default: Date.now,
+    index: { expires: '5m' },
   }
 });
 
-module.exports = mongoose.model('Note', notesSchema);
+module.exports = mongoose.model('Share', notesSchema);

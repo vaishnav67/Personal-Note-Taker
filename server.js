@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 var LocalStrategy = require("passport-local");
 var User = require("./models/user");
 var Notes = require("./models/notes");
+var Share = require("./models/share");
 const session = require('express-session');
 const ejs = require('ejs');
 const port = 8080;
@@ -21,6 +22,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 app.use(session({secret: 'test', resave: true, saveUninitialized: true,maxAge: 3600000})); 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use('/scripts', express.static(__dirname + '/node_modules/ckeditor/'));
 
 app.get('/', function (req, res) {
     res.render('pages/Login');
@@ -72,7 +74,7 @@ app.get('/logout', function(req, res){
   });
   
 app.get('/notes', async (req, res) => {
-	const notes = await Notes.find({createdBy:req.user.username}).sort('-createdAt');
+	const notes = await Notes.find({createdBy:req.user._id}).sort('-createdAt');
 	res.render('pages/notes', { notes: notes });
   });
 
@@ -84,13 +86,14 @@ app.post('/notes', async (req, res) => {
 	let note = await new Notes({
 		title: req.body.title,
 	  	description: req.body.description,
-	  	createdBy: req.user.username,
+	  	createdBy: req.user._id,
 	});
 	try {
 		note = await note.save();
 		res.redirect('/notes');
 	} catch (e) {
 		console.log(e);
+		console.log(req.body);
 		res.render('new');
 	}
   });
@@ -102,6 +105,63 @@ app.post('/notes/:id', async (req, res) => {
 	} catch (e) {
 		console.log(e);
 	  	res.redirect('/notes');
+	}
+  });
+
+app.post('/edit/:id', async (req, res) => {
+	const notes = await Notes.find({createdBy:req.user._id,_id:req.params.id});
+	res.render('pages/edit', { notes: notes });
+  });
+
+app.post('/update', async (req, res) => {
+	try {
+		note = await Notes.updateOne({
+			title: req.body.title,
+			description: req.body.description,
+			editedAt: Date.now()});
+		res.redirect('/notes');
+	} catch (e) {
+		console.log(e);
+		console.log(req.body);
+		res.render('new');
+	}
+  });
+
+app.post('/share/:id', async (req, res) => {
+	try {
+		const Shares = await Share.find({createdBy:req.user._id,real:req.params.id});
+		if(Shares == "")
+		{
+			const notes = await Notes.find({createdBy:req.user._id,_id:req.params.id});
+			let note = await new Share({
+				title: notes[0].title,
+				description: notes[0].description,
+				createdBy: req.user._id,
+				real:req.params.id
+			});
+			note = await note.save();
+			res.redirect('/notes');
+		}
+		else
+		{
+			const shares = await Share.find({createdBy:req.user._id,real:req.params.id});
+			console.log(shares);
+			res.render('pages/view', { notes: shares });
+		}
+	} catch (e) {
+		console.log(e);
+		res.render('notes');
+	}
+  });
+
+app.get('/share/:id', async (req, res) => {
+	try {
+		const shares = await Share.find({createdBy:req.user._id,_id:req.params.id});
+		console.log(shares);
+		res.render('pages/view', { notes: shares });
+	} catch (e) {
+		console.log(e);
+		res.render('notes');
 	}
   });
 

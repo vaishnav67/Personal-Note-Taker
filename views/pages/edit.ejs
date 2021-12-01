@@ -17,21 +17,23 @@
         </div>
     </div>
     <div class="container">
-        <form action="/notes" method="POST">
+        <form action="/update" method="POST">
+            <% notes.forEach(note => { %>
             <div class="form-group">
                 <label for="title">Title:</label>
-                <input type="text" class="form-control" name="title" placeholder="Enter Note Title" required>
+                <input type="text" class="form-control" name="title" placeholder="Enter Note Title" value="<%= note.title %>" required>
             </div>
             <div class="form-group">
                 <label for="editor">Note:</label>
                 <textarea id="editor" name="description">
-                    <p>Type your content here</p>
+                    <%= note.description%>
                 </textarea>
             </div>
             <div class="buttons float-right">
                 <a href="/notes" class="btn btn-secondary">Cancel</a>
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
+            <%}) %>
         </form>
     </div>
     <script src="/scripts/ckeditor.js"></script>
